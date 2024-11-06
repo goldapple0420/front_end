@@ -1,0 +1,175 @@
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#header {
+    background-image: url('./fullpage2.jfif');
+    background-repeat: repeat;
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    justify-content: center;
+}
+
+#banner_area {
+    width: 72rem;
+}
+
+#banner {
+    object-fit: cover;
+    width: 100%;
+}
+
+#nav {
+    background-color: #801919;
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#nav_area {
+    background-color: #A42828;
+    width: 72rem;
+    display: flex;
+}
+
+#nav_ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+#nav_ul li {
+    display: flex;
+    position: relative;
+    align-items : center;
+}
+
+#nav_ul li a {
+    padding: 0.7rem;
+    color: white;
+    text-decoration: none;
+}
+
+#nav_ul li:hover {
+    background-color: #801919;
+}
+
+#nav_ul ul {
+    background-color: #A42828;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    left: 0;
+    top: 100%;
+    color: white;
+    display: none;
+    justify-content: center;
+    }
+
+#nav_ul li:hover > ul {
+    display: block;
+}
+
+#nav_ul ul li:hover {
+    background-color: #801919;
+}
+
+#nav_ul ul li a {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    background-image: url('./fullpage.jfif');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+}
+
+#main_area {
+    background-color: #FEF9F3;
+    width: 72rem;
+    height: 300rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#char_area {
+    background-image: url('./h_1.png');
+    background-size: contain;
+    margin-top: 1rem;
+    width: 64rem;
+    height: 36rem;
+    border:silver, solid;
+    border-width: 3px 0px;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+}
+
+
+#char_exps {
+    display: flex;
+    position: absolute;
+    width: 37rem;
+    bottom: 1.3rem;
+    right: 2rem;
+    justify-content: space-between;
+}
+
+.exp_backgroung {
+    background-color: white;
+    border:#2AB8C4, solid;
+    border-width: 2px;
+    border-width: 2px;
+    border-radius: 30px;
+    width: 8rem;
+    height: 8rem;
+}
+
+/* 海文, color="#2AB8C4"
+陸尚宇, color="#A19A90"
+邱澤澐, color="#6f599c"
+王輊弦, color="#F67558" */
+
+.exps {
+    background-color: white;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    border-radius: 28px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.exps:hover {
+    opacity: 1;
+}
+
+#char_change {
+    display: flex;
+    width: 64rem;
+    height: 5rem;
+    margin-top: 1rem;
+    justify-content: space-around;
+}
+
+.char_change_pic {
+    object-fit: contain;
+    height: 75%;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.char_change_pic:hover {
+    opacity: 1;
+}
