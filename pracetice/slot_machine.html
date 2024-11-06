@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .results {
+                width: 150px;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .result {
+                height: 70px;
+                border-radius: 5px;
+                border: 3px double cornflowerblue;
+                overflow: hidden;
+            }
+            .result_card {
+                background: linear-gradient(lightblue , SkyBlue, LightSkyBlue, lightblue);
+            }
+            .result_txt {
+                font-size: 48px;
+                color: White;
+                display: flex;
+                justify-content: center;
+                line-height: 70px;
+            }
+            .btn_start,
+            .btn_stop {
+                border: none;
+                width: 150px;
+                height: 35px;
+                font-size: 20px;
+                color: orchid;
+                text-align: center;
+                margin: 20px 0;
+                border-radius: 5px;
+                background: Lavender;
+                box-shadow: inset 0 0 0 0 transparent;
+                cursor: pointer;
+            }
+            .btn_start:hover,
+            .btn_stop:hover {
+                box-shadow: inset 0 0 6px 2px mediumpurple;
+            }
+            .btn_start:active,
+            .btn_stop:active {
+                box-shadow: inset 0 0 6px 4px mediumpurple;
+            }
+            .input_container {
+                display: flex;
+                position: absolute;
+                left: 50%;
+                top: 75%;
+                transform: translate(-50%, -50%);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .input {
+                height: 20px;
+                text-align: center;
+                border-radius: 10px;
+                margin: 3px 3px;
+                background: linear-gradient(to right, skyblue 50%, transparent 50%), linear-gradient(to bottom, skyblue, skyblue, skyblue, skyblue, limegreen, sienna);
+                border-color: lightgrey;
+            }
+            .input:focus, .input:not(:placeholder-shown) {
+                background: transparent;
+            }
+            .btn_sacrifice {
+                font-size: 17.5px;
+                border: none;
+                border-radius: 5px;
+                color: #ffb6d3;
+                background: #E4F6F8;
+                margin-top: 7.5px;
+            }
+            .btn_sacrifice:hover {
+                box-shadow: 0px 0px 6px 2px #f2e3f4;
+            }
+            .btn_sacrifice:active {
+                box-shadow: 0px 0px 4px 6px #f2e3f4;
+                transform: scale(.98);
+            }
+        </style>
+        <style>
+            .result_card.animation_play {
+                animation: resultPlay 0.5s infinite linear;
+            }
+            @keyframes resultPlay {
+                100% {
+                    transform: translateY(-80%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class='results'>
+            <button class='btn_start' onclick='start()'>start</button>
+            <div class='result'>
+                <div class='result_card' id='result'>
+                    <div class="result_txt">蘋果</div>
+                    <div class="result_txt">草莓</div>
+                    <div class="result_txt">香蕉</div>
+                    <div class="result_txt">櫻桃</div>
+                    <div class="result_txt">甜桃</div>
+                </div>
+            </div>
+            <button class='btn_stop' onclick='stop()'>stop</button>
+        </div>
+        <div class='input_container'>
+            <label for='number' style='margin-bottom: 7.2px;'>請問有幾位<del>受害人</del>幸運兒?</label>
+            <select id='number' style='margin-bottom: 7.5px;' onchange='number()'>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <div id='input'>
+                <input type='text' name='texts' class='input' placeholder='○┼＜ ︵╰（ˋ□ˊ╰'>
+                <input type='text' name='texts' class='input' placeholder='○┼＜ ︵╰（ˋ□ˊ╰'>
+            </div>
+            <button class='btn_sacrifice' onclick='items()'>sacrifice</button>
+        </div>
+
+        <script>
+            let num = [0, 20, 40, 60, 80];
+
+            function start() {
+                if(document.getElementById(`result`)) {
+                    document.getElementById(`result`).classList.add('animation_play');
+                    document.getElementById(`result`).style.transform = 'none';
+                }   
+            }
+
+                function stop() {
+                    if(document.getElementById(`result`).style.transform == 'none') {
+                        if (document.getElementById(`result`)) {
+                          document.getElementById(`result`).classList.remove('animation_play');
+                          const random = Math.floor(Math.random() * num.length);
+                          document.getElementById(`result`).style.transform = `translateY(${-num[random]}%)`;
+                        }
+                    }
+                }
+
+                function number() {
+                    let input_num = document.getElementById('number').value;
+                    let input_fields = document.getElementById('input');
+                    input_fields.innerHTML = '';
+                    for (let i=1; i <= input_num; i++) {
+                        let inputs = document.createElement('input');
+                        inputs.type='text';
+                        inputs.name='texts';
+                        inputs.className='input';
+                        inputs.placeholder='○┼＜ ︵╰（ˋ□ˊ╰';
+                        input_fields.appendChild(inputs);
+                    }
+                }
+
+                function items() {
+                    let texts = document.getElementsByName('texts');
+                    const result_card = document.getElementById('result');
+                    let input_num = document.getElementById('number').value;
+                    let stylesheet = document.styleSheets[1];
+                    let ani_time = stylesheet.cssRules[0];
+                    let keyframe = stylesheet.cssRules[1];
+                    card_len = Math.floor(100/input_num)*(input_num-1);
+                    ani_time.style.animation = `resultPlay ${input_num * 0.12}s infinite linear`;
+                    keyframe.findRule('100%').style.transform = `translateY(-${card_len}%)`;
+                    num = []
+                    result_card.innerHTML = '';
+                    for (let i = 0; i < input_num; i++) {
+                        num.push(100/input_num*i)
+                    }
+                    for (let i = 0; i < input_num; i++) {
+                        let new_text = document.createElement('div');
+                        new_text.classList.add('result_txt');
+                        new_text.innerText = texts[i].value;
+                        result_card.appendChild(new_text);
+                    }
+                }
+        </script>
+    </body>
+</html>
