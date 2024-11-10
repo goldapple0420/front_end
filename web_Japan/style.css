@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-size: medium;
+}
+
+body {
+    position: relative;
+
+    img.fixed_img {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -10;
+    }
+
+    header {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    
+        section.logo {
+            flex: 4 1 30rem;
+            display: flex;
+            align-items: center;
+            img {
+                height: 6vw;
+                width: 6vw;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    
+        nav {
+            flex: 5 1 36rem;
+            align-items: center;
+            ul {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+                li {
+                    a {
+                        font-size: 1.25rem;
+                        color: black;
+                        text-decoration: none;
+                        transition: all 0.2s ease;
+                        &:hover {
+                            color: #fcc2ce;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    main {
+        section.backgroundImg {
+            background-image: url('images/background1.jpg');
+            height: 37.5rem;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            position: relative;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div.filter {
+                background-color: rgba(0, 0, 0, 0.5);
+                height: 37.5rem;
+                width: 100%;
+                z-index: -1;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            h3 {
+                color: white;
+                font-size: 2.3rem;
+                text-align: center;
+            }
+        }
+    
+        section.info_circles {
+            background-color: white;
+            padding: 1rem 2rem;
+            h3 {
+                text-align: center;
+                font-size: 2rem;
+            }
+            div.circles {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+            div.circle {
+                flex: 0 1 20rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 80%;
+                    border-radius: 50%;
+                    padding: 0.5rem;
+                    &:hover {
+                        border: 0.2rem solid #fcc2ce;
+                    }
+                }
+                p {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+
+        section.empty_container {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 37.5rem;
+            h3 {
+                color: white;
+                font-size: 2.3rem;
+            }
+        }
+
+        section.google_map {
+            background-color: white;
+            text-align: center;
+            padding: 1rem;
+            h3 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+            iframe {
+                width: 100%;
+            }
+        }
+    }
+
+    footer {
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 1.2rem;
+
+        section.flogo {
+            img {
+                width: 20rem;
+            }
+            h3 {
+                color: white;
+                font-size: 4rem;
+            }
+        }
+
+        section.smedia {
+            padding: 1rem 1.2rem;
+            a {
+                padding: 1rem 2rem;
+                img {
+                    width: 2.2rem;
+                }
+            }
+        }
+    }
+}
