@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: DFkai-sb, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+body {
+    header {
+        div.top {
+            background-image: url('./images/background.png');
+            padding: 1.2rem;
+            h1 {
+                font-size: 2.5rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+        }
+    
+        nav {
+            ul {
+                display: flex;
+                background-color: black;
+                li {
+                    padding: 1rem 1.2rem;
+                    list-style: none;
+                    a {
+                        color: white;
+                        font-size: 1.3rem;
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        color: yellow;
+                    }
+                    a.active {
+                        color: yellow;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        section.left {
+            width: 25%;
+            padding: 1rem;
+            h3 {
+                font-size: 1.5rem;
+            }
+            img {
+                width: 90%;
+                margin-top: 1rem;
+            }
+            table {
+                padding: 1rem 0.5rem;
+                td {
+                    padding: 0.3rem;
+                }
+            }
+        }
+        section.right {
+            padding: 1rem;
+            width: 75%;
+            h3 {
+                font-size: 1.5rem;
+            }
+            p {
+                padding: 1rem 0rem;
+            }
+
+            ul {
+                padding: 0rem 2rem;
+            }
+        }
+
+        section {
+            padding: 1.5rem;
+            div.japan {
+                margin: 0.7rem;
+                display: flex;
+                flex-wrap: wrap;
+                div.picture {
+                    display: flex;
+                    align-items: center;
+                    flex: 1 1 300px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                div.info {
+                    padding: 2rem;
+                    flex:3 1 600px;
+                    p {
+                        padding: 0.5rem;
+                    }
+                    ul {
+                        padding: 0rem 0.5rem;
+                    }
+                }
+            }
+
+            div.competition {
+                padding: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                div.text {
+                    padding: 1rem;
+                    flex: 3 1 700px;
+                    h3 {
+                        font-size: 2rem;
+                        color: rgb(3, 99, 83);
+                    }
+                    p {
+                        padding: 0.75rem 0;
+                    }
+                }
+                div#piechart {
+                    flex: 1 1 350px;
+                }
+            }
+        }
+    }
+
+    main.no_flex {
+        display: block;
+        p {
+            padding: 0.7rem;
+        }
+        h3 {
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        div.player {
+            margin: 1.5rem 2.5rem;
+            padding: 0.5rem;
+            border: rgb(200, 175, 100) solid 2.5px;
+            h4 {
+                font-size: 1.5rem;
+                color: rgb(11, 118, 133);
+            }
+            h5 {
+                font-size: 1.1rem;
+                color: rgb(40, 141, 155);
+            }
+            p {
+                padding: 0.5rem 0;
+            }
+        }
+    }
+}
